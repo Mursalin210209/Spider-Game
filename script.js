@@ -253,9 +253,18 @@ function spawnLifeInsect() {
     });
 }
 
+// Mouse movement for desktop
 window.addEventListener("mousemove", event => {
     spider.x = event.clientX;
     spider.y = event.clientY;
+});
+
+// Touch movement for mobile
+window.addEventListener("touchmove", event => {
+    event.preventDefault(); // Prevent default touch behavior (e.g., scrolling)
+    const touch = event.touches[0]; // Get the first touch point
+    spider.x = touch.clientX;
+    spider.y = touch.clientY;
 });
 
 window.addEventListener("resize", () => {
